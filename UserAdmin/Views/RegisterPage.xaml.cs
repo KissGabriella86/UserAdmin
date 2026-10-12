@@ -25,6 +25,8 @@ namespace UserAdmin.Views
         {
             InitializeComponent();
         }
+
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
@@ -70,7 +72,5 @@ namespace UserAdmin.Views
 
             MessageBox.Show("Sikeres regisztráció.");
         }
-
-       
     }
 }
