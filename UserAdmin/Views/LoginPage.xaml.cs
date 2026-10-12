@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserAdmin.Services;
 
 namespace UserAdmin.Views
 {
@@ -26,12 +27,27 @@ namespace UserAdmin.Views
       
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            var email = EmailBox.Text.Trim();
+            var password = PasswordBoxInput.Password;
 
-        }
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                ShowError("Érvénytelen email vagy jelszó.");
+            }
+
+            }
+   
 
         private void RegisterLink_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new RegisterPage());
         }
+
+        private void ShowError(string message)
+        {
+            ErrorText.Text = message;
+            ErrorText.Visibility = Visibility.Visible;
+        }
+
     }
 }
